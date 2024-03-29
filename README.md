@@ -38,9 +38,8 @@ In this portfolio project, I worked with a dataset containing COVID-19 vaccinati
    \i change_column_types.sql
    ```
 
-**Conclusion:**
 By cleaning the dataset and converting the data types appropriately, I ensured that the data was more consistent and suitable for analysis. These preprocessing steps are essential for ensuring the accuracy and reliability of any subsequent data analysis or modeling tasks.
 
 ---
 
-Feel free to adjust the code snippets to match the actual commands and scripts you used in your project.
+**Still Ongoing...**
