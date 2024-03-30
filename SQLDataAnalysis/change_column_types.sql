@@ -80,3 +80,34 @@ ALTER COLUMN iso_code TYPE varchar,
 ALTER COLUMN continent TYPE varchar,
 ALTER COLUMN location TYPE varchar,
 ALTER COLUMN date TYPE varchar;
+
+
+
+ALTER TABLE covid_vaccinations ALTER COLUMN date TYPE DATE USING TO_DATE(date, 'DD/MM/YYYY');                                                      ALTER TABLE
+ALTER TABLE covid_deaths ALTER COLUMN date TYPE DATE USING TO_DATE(date, 'DD/MM/YYYY');
+
+select location, date, total_cases, total_deaths, (total_deaths::numeric/ total_cases::numeric) * 100 as death_percentage 
+from covid_deaths 
+order by location, date 
+limit 200;
+
+-- to get the death percentage due to covid for Kenya
+-- this shows thw likelyhood of dying from covid in Kenya
+
+select location, date, total_cases, total_deaths, Round(((total_deaths::numeric/ total_cases::numeric) * 100), 2) as death_percentage 
+from covid_deaths 
+where location like 'Kenya' 
+order by location, date 
+limit 200;
+
+
+-- to get the percentage of the population with covid in Kenya as of 2023-12-30
+
+
+SELECT location, date, total_cases, population, percentage_with_covid 
+FROM 
+( SELECT location, date, total_cases, population, ROUND(((total_cases::numeric/ population::numeric) * 100), 2) as percentage_with_covid 
+FROM covid_deaths WHERE location LIKE 'Kenya' ) AS subquery 
+WHERE date = '2023-12-30' 
+ORDER BY location, date;
+
