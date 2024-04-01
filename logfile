@@ -1,0 +1,64 @@
+2024-03-30 15:54:36.760 EAT [5724] LOG:  starting PostgreSQL 16.2, compiled by Visual C++ build 1937, 64-bit
+2024-03-30 15:54:36.762 EAT [5724] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-30 15:54:36.762 EAT [5724] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-30 15:54:36.813 EAT [3156] LOG:  database system was shut down at 2024-03-30 15:54:36 EAT
+2024-03-30 15:54:36.858 EAT [5724] LOG:  database system is ready to accept connections
+2024-03-30 15:59:36.821 EAT [19644] LOG:  checkpoint starting: time
+2024-03-30 15:59:36.854 EAT [19644] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.007 s, total=0.034 s; sync files=2, longest=0.004 s, average=0.004 s; distance=0 kB, estimate=0 kB; lsn=0/166D23E0, redo lsn=0/166D23A8
+2024-03-30 16:01:42.956 EAT [10204] ERROR:  column "location" does not exist at character 8
+2024-03-30 16:01:42.956 EAT [10204] STATEMENT:  select location, popu;
+2024-03-30 16:01:42.958 EAT [10204] ERROR:  syntax error at or near "ation" at character 1
+2024-03-30 16:01:42.958 EAT [10204] STATEMENT:  ation,  max(total_cases) as highestInfectioncount from covid_deaths where location like 'Kenya' order by location, date limit 200;
+2024-03-30 16:01:58.110 EAT [10204] ERROR:  column "covid_deaths.location" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+2024-03-30 16:01:58.110 EAT [10204] STATEMENT:  select location, population,  max(total_cases) as highestInfectioncount from covid_deaths where location like 'Kenya' order by location, date limit 200;
+2024-03-30 16:02:08.465 EAT [10204] ERROR:  column "covid_deaths.location" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+2024-03-30 16:02:08.465 EAT [10204] STATEMENT:  select Location, population,  max(total_cases) as highestInfectioncount from covid_deaths where location like 'Kenya' order by location, date limit 200;
+2024-03-30 16:03:47.060 EAT [10204] ERROR:  column "covid_deaths.location" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+2024-03-30 16:03:47.060 EAT [10204] STATEMENT:  select Location, population,  max(total_cases) as highestInfectioncount from covid_deaths where location like 'Kenya' order by location, date limit 200;
+2024-03-30 16:03:49.913 EAT [10204] ERROR:  column "covid_deaths.date" must appear in the GROUP BY clause or be used in an aggregate function at character 167
+2024-03-30 16:03:49.913 EAT [10204] STATEMENT:  SELECT location, population, MAX(total_cases) AS highestInfectioncount FROM covid_deaths WHERE location LIKE 'Kenya' GROUP BY location, population ORDER BY location, date LIMIT 200;
+2024-03-30 16:04:55.258 EAT [10204] ERROR:  syntax error at or near "Kenya" at character 228
+2024-03-30 16:04:55.258 EAT [10204] STATEMENT:  SELECT location, population, MAX(total_cases) AS highestInfectioncount FROM covid_deaths WHERE location LIKE 'Kenya;
+	SELECT location, population, MAX(total_cases) AS highestInfectioncount FROM covid_deaths WHERE location LIKE 'Kenya;
+2024-03-30 16:05:01.605 EAT [10204] ERROR:  column "covid_deaths.location" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+2024-03-30 16:05:01.605 EAT [10204] STATEMENT:  SELECT location, population, MAX(total_cases) AS highestInfectioncount FROM covid_deaths WHERE location LIKE 'Kenya';
+2024-03-30 16:39:55.641 EAT [5724] LOG:  received fast shutdown request
+2024-03-30 16:39:55.647 EAT [5724] LOG:  aborting any active transactions
+2024-03-30 16:39:55.647 EAT [10204] FATAL:  terminating connection due to administrator command
+2024-03-30 16:39:55.648 EAT [14904] ERROR:  canceling statement due to user request
+2024-03-30 16:39:55.670 EAT [5724] LOG:  background worker "logical replication launcher" (PID 14904) exited with exit code 1
+2024-03-30 16:39:55.676 EAT [19644] LOG:  shutting down
+2024-03-30 16:39:55.680 EAT [19644] LOG:  checkpoint starting: shutdown immediate
+2024-03-30 16:39:55.695 EAT [9808] LOG:  PID 10204 in cancel request did not match any process
+2024-03-30 16:39:55.696 EAT [19644] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.021 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/166D2490, redo lsn=0/166D2490
+2024-03-30 16:39:55.720 EAT [5724] LOG:  database system is shut down
+2024-03-30 16:40:38.028 EAT [6496] LOG:  starting PostgreSQL 16.2, compiled by Visual C++ build 1937, 64-bit
+2024-03-30 16:40:38.031 EAT [6496] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-30 16:40:38.031 EAT [6496] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-30 16:40:38.092 EAT [13604] LOG:  database system was shut down at 2024-03-30 16:39:55 EAT
+2024-03-30 16:40:38.122 EAT [6496] LOG:  database system is ready to accept connections
+2024-03-30 16:40:49.331 EAT [10728] ERROR:  column "percentage_popul_infected" does not exist at character 212
+2024-03-30 16:40:49.331 EAT [10728] STATEMENT:  SELECT location, population, MAX(total_cases) AS highestInfectioncount, max(total_cases::numeric/ population::numeric) * 100 as percantage_popul_infected FROM covid_deaths GROUP BY location, population order by percentage_popul_infected;
+2024-03-30 16:42:49.681 EAT [10728] ERROR:  column "percentage_popul_infected" does not exist at character 212
+2024-03-30 16:42:49.681 EAT [10728] STATEMENT:  SELECT location, population, MAX(total_cases) AS highestInfectioncount, max(total_cases::numeric/ population::numeric) * 100 as percantage_popul_infected FROM covid_deaths GROUP BY location, population order by percentage_popul_infected;
+2024-03-30 16:42:57.335 EAT [6496] LOG:  received fast shutdown request
+2024-03-30 16:42:57.336 EAT [8140] ERROR:  canceling statement due to user request
+2024-03-30 16:42:57.342 EAT [6496] LOG:  aborting any active transactions
+2024-03-30 16:42:57.342 EAT [10728] FATAL:  terminating connection due to administrator command
+2024-03-30 16:42:57.368 EAT [6496] LOG:  background worker "logical replication launcher" (PID 8140) exited with exit code 1
+2024-03-30 16:42:57.379 EAT [4648] LOG:  shutting down
+2024-03-30 16:42:57.382 EAT [4648] LOG:  checkpoint starting: shutdown immediate
+2024-03-30 16:42:57.384 EAT [17940] LOG:  PID 10728 in cancel request did not match any process
+2024-03-30 16:42:57.406 EAT [4648] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.005 s, total=0.028 s; sync files=2, longest=0.004 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/166D2540, redo lsn=0/166D2540
+2024-03-30 16:42:57.431 EAT [6496] LOG:  database system is shut down
+2024-03-30 16:43:20.770 EAT [10156] LOG:  starting PostgreSQL 16.2, compiled by Visual C++ build 1937, 64-bit
+2024-03-30 16:43:20.772 EAT [10156] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-30 16:43:20.772 EAT [10156] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-30 16:43:20.808 EAT [19160] LOG:  database system was shut down at 2024-03-30 16:42:57 EAT
+2024-03-30 16:43:20.838 EAT [10156] LOG:  database system is ready to accept connections
+2024-03-30 16:48:20.820 EAT [18096] LOG:  checkpoint starting: time
+2024-03-30 16:48:20.850 EAT [18096] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.007 s, total=0.032 s; sync files=2, longest=0.005 s, average=0.004 s; distance=0 kB, estimate=0 kB; lsn=0/166D2628, redo lsn=0/166D25F0
+2024-03-30 17:25:04.588 EAT [10044] ERROR:  syntax error at or near "SELECT" at character 619
+2024-03-30 17:25:04.588 EAT [10044] STATEMENT:  SELECT continent, SUM(population) AS total_population, MAX(total_deaths) AS highestDeathCount, CASE WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) * 100 ELSE NULL END AS percentage_popul_deaths FROM covid_deaths WHERE continent <> ''  -- Filter out empty continent values AND population IS NOT NULL AND total_deaths IS NOT NULL GROUP BY continent ORDER BY CASE WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) ELSE NULL END DESC;
+	SELECT continent, SUM(population) AS total_population, MAX(total_deaths) AS highestDeathCount, CASE WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) * 100 ELSE NULL END AS percentage_popul_deaths FROM covid_deaths WHERE continent <> ''  -- Filter out empty continent values AND population IS NOT NULL AND total_deaths IS NOT NULL GROUP BY continent ORDER BY CASE WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) ELSE NULL END DESC;
+	SELECT continent, SUM(population) AS total_population, MAX(total_deaths) AS highestDeathCount, CASE WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) * 100 ELSE NULL END AS percentage_popul_deaths FROM covid_deaths WHERE population IS NOT NULL AND total_deaths IS NOT NULL GROUP BY continent ORDER BY CASE WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) ELSE NULL END DESC;

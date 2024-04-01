@@ -111,3 +111,87 @@ FROM covid_deaths WHERE location LIKE 'Kenya' ) AS subquery
 WHERE date = '2023-12-30' 
 ORDER BY location, date;
 
+
+-- 
+SELECT location, population, MAX(total_cases) AS highestInfectioncount 
+FROM covid_deaths WHERE location LIKE 'Kenya' 
+GROUP BY location, population;
+
+
+-- highestpercentage poulation infected in kenya
+SELECT location, population, MAX(total_cases) AS highestInfectioncount, max(total_cases::numeric/ population::numeric) * 100 as percantage_popul_infected 
+FROM covid_deaths 
+WHERE location LIKE 'Kenya' 
+GROUP BY location, population;
+
+-- highest infection percentage  population in the world grouped by countries
+SELECT 
+    location, 
+    population, 
+    MAX(total_cases) AS highestInfectioncount, 
+    CASE 
+        WHEN MAX(total_cases::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN 
+            MAX(total_cases::numeric / NULLIF(population::numeric, 0)) * 100 
+        ELSE 
+            NULL 
+    END AS percentage_popul_infected 
+FROM 
+    covid_deaths 
+WHERE 
+    population IS NOT NULL 
+    AND total_cases IS NOT NULL 
+GROUP BY 
+    location, 
+    population 
+ORDER BY 
+    CASE 
+        WHEN MAX(total_cases::numeric / NULLIF(population::numeric, 0)) IS NOT NULL THEN 
+            MAX(total_cases::numeric / NULLIF(population::numeric, 0)) * 100 
+        ELSE 
+            NULL 
+    END DESC 
+LIMIT 20;
+-- Highest Death count percantage grouped by country
+
+SELECT location, population, MAX(total_deaths) AS highestDeatcount, 
+CASE 
+WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL 
+THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) * 100 
+ELSE NULL END AS percentage_popul_deaths FROM covid_deaths 
+WHERE population IS NOT NULL AND total_deaths IS NOT NULL 
+GROUP BY location, population 
+ORDER BY CASE 
+WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL 
+THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) * 100 ELSE NULL END DESC LIMIT 20;
+
+-- Highest Death count percantage grouped by continent
+SELECT 
+    continent,
+    SUM(population) AS total_population,
+    MAX(total_deaths) AS highestDeathCount,
+    CASE 
+        WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL 
+        THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) * 100 
+        ELSE NULL 
+    END AS percentage_popul_deaths 
+FROM 
+    covid_deaths 
+WHERE 
+    continent <> '' 
+    AND population IS NOT NULL 
+    AND total_deaths IS NOT NULL 
+GROUP BY 
+    continent 
+ORDER BY 
+    CASE 
+        WHEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) IS NOT NULL 
+        THEN MAX(total_deaths::numeric / NULLIF(population::numeric, 0)) 
+        ELSE NULL 
+    END DESC;
+
+
+--Global death percentage
+select sum(new_cases) as total_cases, sum(new_deaths) as total_deaths, sum(new_deaths::numeric)/nullif(sum(new_cases::numeric), 0) * 100 as deathPercentage 
+from covid_deaths 
+where continent is not null 
+order by 1, 2;    
