@@ -195,3 +195,13 @@ select sum(new_cases) as total_cases, sum(new_deaths) as total_deaths, sum(new_d
 from covid_deaths 
 where continent is not null 
 order by 1, 2;    
+
+
+-- joining the covid_deaths and covid_vaccinations tables
+
+SELECT deaths.location, deaths.location, deaths.date, deaths.population, vac.new_vaccinations 
+from covid_deaths deaths 
+join covid_vaccinations vac 
+on deaths.location = vac.location 
+and deaths.date = vac.date 
+limit 50;
