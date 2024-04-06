@@ -103,17 +103,17 @@ This project demonstrates web scraping techniques to extract data from a web pag
 2. **Project Setup**
    - Clone this repository to your local machine:
      ```bash
-     git clone https://github.com/your_username/project-portfolio.git
+     git clone https://github.com/Tonyndungu-git/DataAnalyticsPortfolio.git
      ```
 
 3. **Running the Web Scraping Script**
    - Navigate to the project directory:
      ```bash
-     cd project-portfolio/web_scraping
+     cd DataAnalyticsPortfolio/WebScrapping
      ```
    - Run the Python script to perform web scraping:
      ```bash
-     python scrape_data.py
+     python companies_revenues.py
      ```
 
 ### Code Explanation
