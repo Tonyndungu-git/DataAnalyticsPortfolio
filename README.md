@@ -1,5 +1,7 @@
 # Data Analytics Portfolio
 
+Welcome to my project portfolio repository! This repository contains a collection of projects showcasing my skills in data analysis, web scraping, SQL, and more. Each project is organized into separate directories with detailed documentation and code samples.
+
 ## SQL Portfolio Project: Data Cleaning, Type Conversion, and Analysis
 
 In this portfolio project, I worked with a dataset containing COVID-19 vaccination data. The dataset was initially in CSV format and contained various columns with different data types, including character varying and numeric values.
