@@ -83,3 +83,61 @@ By cleaning the dataset, converting data types, and performing data analysis, I 
 ---
 
 This project is still ongoing, and further steps may include additional data analysis, visualization, and interpretation of the results.
+
+
+## Web Scraping and Data Analysis
+
+This project demonstrates web scraping techniques to extract data from a web page listing the largest companies in the United States by revenue on Wikipedia. The extracted data is then processed and saved into a CSV file.
+
+### Getting Started
+
+1. **Prerequisites**
+   - Python 3.x installed on your local machine.
+   - Required Python libraries installed using pip:
+     ```bash
+     pip install requests beautifulsoup4 pandas
+     ```
+
+2. **Project Setup**
+   - Clone this repository to your local machine:
+     ```bash
+     git clone https://github.com/your_username/project-portfolio.git
+     ```
+
+3. **Running the Web Scraping Script**
+   - Navigate to the project directory:
+     ```bash
+     cd project-portfolio/web_scraping
+     ```
+   - Run the Python script to perform web scraping:
+     ```bash
+     python scrape_data.py
+     ```
+
+### Code Explanation
+
+1. **Importing Libraries:**
+   - `requests`: Used for making HTTP requests to fetch web pages.
+   - `BeautifulSoup` (from `bs4`): Used for parsing and navigating HTML content.
+   - `pandas` (imported as `pd`): Used for data manipulation and analysis.
+
+2. **Fetching Web Page:**
+   - Send an HTTP GET request to the Wikipedia URL using `requests.get(url)`.
+   - Parse the HTML content of the response using `BeautifulSoup(page.text, 'html')` to create a BeautifulSoup object (`soup`).
+
+3. **Extracting and Processing Data:**
+   - Identify the desired table within the HTML using `soup.find_all('table')[1]` (assuming the target table is the second table on the page).
+   - Extract table rows (`<tr>`) and cell data (`<td>` elements) from the identified table.
+   - Populate a pandas DataFrame (`df`) with the extracted data and save it to a CSV file.
+
+### Notes
+
+- Customize the code as needed based on the target web page structure and data requirements.
+- Handle exceptions and edge cases to ensure robustness in web scraping.
+- Provide appropriate attribution and comply with website terms of service when scraping data from external sources.
+
+### References
+
+- [Requests Documentation](https://docs.python-requests.org/en/latest/)
+- [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [pandas Documentation](https://pandas.pydata.org/docs/)
